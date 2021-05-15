@@ -28,11 +28,11 @@ public:
         }
     }
 
-    value_type* data() noexcept{
+    pointer data() noexcept{
         return m_data;
     }
 
-    const value_type* data() const noexcept{
+    const pointer data() const noexcept{
         return m_data;
     }
 
