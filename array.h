@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <stdexcept>
 #include <string>
+#include <iterator>
 
 namespace mystl{
 
@@ -12,8 +13,10 @@ class array{
     using const_reference           = const value_type&;
     using pointer                   = value_type*;
     using const_pointer             = const value_type*;
-    using reverse_iterator          = std::reverse_iterator< iterator >
-    using const_reverse_iterator    = td::reverse_iterator< const_iterator > 
+    using iterator                  = pointer;
+    using const_iterator            = const_pointer;
+    using reverse_iterator          = std::reverse_iterator< iterator >;
+    using const_reverse_iterator    = std::reverse_iterator< const_iterator >;
 private:
     T m_data[N]; 
 public:
