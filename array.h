@@ -6,12 +6,14 @@ namespace mystl{
 
 template <typename T, size_t N>
 class array{
-    using value_type            = T;
-    using size_type             = std::size_t;
-    using reference             = value_type&;
-    using const_reference       = const value_type&;
-    using pointer               = value_type*;
-    using const_pointer         = const value_type*;
+    using value_type                = T;
+    using size_type                 = std::size_t;
+    using reference                 = value_type&;
+    using const_reference           = const value_type&;
+    using pointer                   = value_type*;
+    using const_pointer             = const value_type*;
+    using reverse_iterator          = std::reverse_iterator< iterator >
+    using const_reverse_iterator    = td::reverse_iterator< const_iterator > 
 private:
     T m_data[N]; 
 public:
@@ -54,6 +56,39 @@ public:
             throw std::out_of_range( "array::at" );
         } 
         return m_data[n];
+    }
+
+    // iterators
+    iterator begin() noexcept {
+        return m_data;
+    }
+    
+    const_iterator begin() const noexcept {
+        return m_data;
+    }
+
+    iterator end() noexcept{
+        return (m_data + N);
+    }
+    
+    const_iterator end() const noexcept {
+        return (m_data + N);
+    }
+
+    reverse_iterator rbegin() noexcept {
+        return reverse_iterator( end() );
+    }
+    
+    const_reverse_iterator rbegin() const noexcept {
+        return const_reverse_iterator( end() );
+    }
+
+    reverse_iterator rend() noexcept {
+        return reverse_iterator( begin() );
+    }
+    
+    const_reverse_iterator rend() const noexcept {
+        return const_reverse_iterator( begin() );
     }
 };
 
