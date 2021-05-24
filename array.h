@@ -103,6 +103,16 @@ public:
     {
         return m_data;
     }
+
+    iterator std::begin() noexcept
+    {
+        return m_data;
+    }
+
+    iterator std::end() noexcept
+    {
+        return m_data;
+    }
     
     const_iterator begin() const noexcept 
     {
